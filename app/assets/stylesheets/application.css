@@ -1,0 +1,137 @@
+/* Reset body styles */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  background-color: #333;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100dvh;
+}
+
+/* Outer Frame */
+.outer-frame {
+  width: 95vw;
+  height: 95dvh;
+  box-sizing: border-box;
+  background-color: #222;
+  border: 5px solid #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Counters Container */
+.counters-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.counter {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5em;
+  color: #fff;
+  box-sizing: border-box;
+  min-height: 0;
+  width: 100%;
+}
+
+#counter1 {
+  background-color: #3498db;
+}
+
+#counter2 {
+  background-color: #2ecc71;
+}
+
+/* Reset Button Container */
+.reset-container {
+  width: 100%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.reset-button {
+  width: 100%;
+  padding: 20px;
+  background-color: #ff4c4c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5em;
+  text-align: center;
+  box-sizing: border-box;
+  transition: background 0.3s;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.reset-button:hover {
+  background-color: #ff1a1a;
+}
+
+/* Landscape Mode */
+@media screen and (orientation: landscape) {
+  .outer-frame {
+    flex-direction: row;
+  }
+
+  .counters-container {
+    flex-direction: row;
+    width: 90%;
+    /* 90% for counters */
+    height: 100%;
+  }
+
+  .counter {
+    width: 50%;
+    height: 100%;
+  }
+
+  .reset-container {
+    width: 10%;
+    /* 10% for reset button */
+    height: 100%;
+    flex-shrink: 0;
+  }
+
+  .reset-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    background: linear-gradient(145deg, #ff5f5f, #ff3a3a);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3),
+      inset -4px -4px 8px rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    font-size: 1.5em;
+    text-align: center;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+  }
+
+  /* Pressing Animation */
+  .reset-button:active {
+    transform: scale(0.95);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4),
+      inset -2px -2px 4px rgba(255, 255, 255, 0.1);
+  }
+}
