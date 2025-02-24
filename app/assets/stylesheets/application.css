@@ -50,6 +50,8 @@ body {
   width: 100%;
   text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
   transition: transform 0.2s ease;
+  margin-right: 0.05em;
+  margin-bottom: 0.05em;
 }
 
 .counter span {
@@ -91,6 +93,10 @@ body {
   transition: background 0.3s;
   border-top: 0.125rem solid #fff;
   border-bottom: 0.125rem solid #fff;
+  border-radius: 0.5em;
+  margin-top: 0.1em;
+  /* Curved edges */
+
 }
 
 .reset-button:hover {
@@ -138,6 +144,7 @@ body {
     padding: 0.9375rem;
     background-color: #ffb74c;
     color: #fff;
+    margin-top: 0.1em;
   }
 }
 
