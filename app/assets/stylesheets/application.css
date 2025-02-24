@@ -42,11 +42,25 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 5em;
+  font-size: 8em;
+  /* Bigger Numbers */
   color: #fff;
   box-sizing: border-box;
   min-height: 0;
   width: 100%;
+  text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease;
+}
+
+.counter span {
+  display: inline-block;
+  transform: translateY(0);
+  transition: transform 0.2s ease;
+}
+
+.counter:active span {
+  transform: translateY(0.1em);
+  /* Slight movement on press */
 }
 
 #counter1 {
