@@ -83,6 +83,13 @@ body {
   background-color: #ff1a1a;
 }
 
+.reset-button:active {
+  transform: scale(0.95);
+  background-color: #e60000;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.1s ease-in-out;
+}
+
 /* Landscape Mode */
 @media screen and (orientation: landscape) {
   .outer-frame {
@@ -115,23 +122,14 @@ body {
     width: 100%;
     height: 100%;
     padding: 15px;
-    background: linear-gradient(145deg, #ff5f5f, #ff3a3a);
+    background-color: #ff4c4c;
     color: #fff;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3),
-      inset -4px -4px 8px rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    font-size: 1.5em;
-    text-align: center;
-    box-sizing: border-box;
-    transition: all 0.2s ease;
-  }
 
-  /* Pressing Animation */
-  .reset-button:active {
-    transform: scale(0.95);
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4),
-      inset -2px -2px 4px rgba(255, 255, 255, 0.1);
+    .reset-button:active {
+      transform: scale(0.95);
+      background-color: #e60000;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+      transition: all 0.1s ease-in-out;
+    }
   }
 }
