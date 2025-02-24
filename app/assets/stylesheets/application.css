@@ -58,6 +58,7 @@ body {
   display: inline-block;
   transform: translateY(0);
   transition: transform 0.2s ease;
+  font-family: 'Montserrat', Arial, sans-serif;
 }
 
 .counter:active span {
@@ -96,6 +97,7 @@ body {
   border-radius: 0.5em;
   margin-top: 0.1em;
   /* Curved edges */
+  font-family: 'Poppins', Arial, sans-serif;
 
 }
 
@@ -109,6 +111,29 @@ body {
   box-shadow: inset 0 0 0.625rem rgba(0, 0, 0, 0.3);
   transition: all 0.1s ease-in-out;
 }
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20%,
+  60% {
+    transform: translateX(-0.2em);
+  }
+
+  40%,
+  80% {
+    transform: translateX(0.2em);
+  }
+}
+
+.shake {
+  animation: shake 0.5s ease;
+}
+
 
 /* Landscape Mode */
 @media screen and (orientation: landscape) {

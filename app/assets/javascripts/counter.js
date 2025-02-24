@@ -45,6 +45,13 @@ document.addEventListener("DOMContentLoaded", () => {
     counters.forEach((counter) => {
       counter.value = 0;
       counter.element.textContent = counter.value;
+      counter.element.classList.add("shake");
+
+      // Remove the shake class after animation completes
+      setTimeout(() => {
+        counter.element.classList.remove("shake");
+      }, 500); // Match the animation duration
     });
   });
+
 });
