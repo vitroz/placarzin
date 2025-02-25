@@ -5,7 +5,7 @@ services:
     branch: main
     rootDir: app
     buildCommand: "./../bin/render-build.sh"
-    startCommand: "bundle exec rails server"
+    startCommand: "bundle exec puma -C config/puma.rb"
     staticPublishPath: ./assets
     envVars:
       - key: RAILS_MASTER_KEY
