@@ -6,7 +6,7 @@ services:
     rootDir: app
     buildCommand: "./../bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
-    staticPublishPath: ./views/pages
+    staticPublishPath: ./public
     envVars:
       - key: RAILS_MASTER_KEY
         sync: false
