@@ -1,0 +1,240 @@
+/* Reset body styles */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100dvh;
+}
+
+#counter1 {
+  background: linear-gradient(135deg, #005bea 0%, #00c6fb 100%);
+  color: #fff;
+  transition: background 0.3s ease;
+  box-shadow: inset 0 0 0.5em rgba(0, 0, 0, 0.3);
+}
+
+#counter2 {
+  background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+  color: #fff;
+  transition: background 0.3s ease;
+  box-shadow: inset 0 0 0.5em rgba(0, 0, 0, 0.3);
+}
+
+.counter:hover {
+  filter: brightness(1.05);
+}
+
+.custom-flex {
+  display: flex;
+}
+
+.custom-mx-auto {
+  margin-inline: auto;
+}
+
+.custom-container {
+  width: 100%;
+}
+
+@media (width >=40rem) {
+  .custom-container {
+    max-width: 40rem;
+  }
+}
+
+@media (width >=48rem) {
+  .custom-container {
+    max-width: 48rem;
+  }
+}
+
+@media (width >=64rem) {
+  .custom-container {
+    max-width: 64rem;
+  }
+}
+
+@media (width >=80rem) {
+  .custom-container {
+    max-width: 80rem;
+  }
+}
+
+@media (width >=96rem) {
+  .custom-container {
+    max-width: 96rem;
+  }
+}
+
+/* Outer Frame */
+.outer-frame {
+  width: 95vw;
+  height: 95dvh;
+  box-sizing: border-box;
+  border: 0.3rem solid #fff;
+  box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 37.5rem;
+}
+
+/* Counters Container */
+.counters-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.counter {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8em;
+  /* Bigger Numbers */
+  color: #fff;
+  box-sizing: border-box;
+  min-height: 0;
+  width: 100%;
+  text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease;
+  margin-right: 0.05em;
+  margin-bottom: 0.05em;
+}
+
+.counter span {
+  display: inline-block;
+  transform: translateY(0);
+  transition: transform 0.2s ease;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.counter:active span {
+  transform: translateY(0.1em);
+  /* Slight movement on press */
+}
+
+/* Reset Button Container */
+.reset-container {
+  width: 100%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.reset-button {
+  width: 100%;
+  padding: 1.25rem;
+  background-color: #ffb74c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5em;
+  text-align: center;
+  box-sizing: border-box;
+  transition: background 0.3s;
+  border-top: 0.125rem solid #fff;
+  border-bottom: 0.125rem solid #fff;
+  border-radius: 0.5em;
+  margin-top: 0.1em;
+  /* Curved edges */
+  font-family: 'Poppins', Arial, sans-serif;
+
+}
+
+.reset-button:hover {
+  background-color: #fbc34a;
+}
+
+.reset-button:active {
+  transform: scale(0.95);
+  background-color: #efbd87;
+  box-shadow: inset 0 0 0.625rem rgba(0, 0, 0, 0.3);
+  transition: all 0.1s ease-in-out;
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20%,
+  60% {
+    transform: translateX(-0.2em);
+  }
+
+  40%,
+  80% {
+    transform: translateX(0.2em);
+  }
+}
+
+.shake {
+  animation: shake 0.5s ease;
+}
+
+
+/* Landscape Mode */
+@media screen and (orientation: landscape) {
+  .outer-frame {
+    flex-direction: row;
+    max-width: 62.5rem;
+    width: 98vw;
+  }
+
+  .counters-container {
+    flex-direction: row;
+    width: 90%;
+    height: 100%;
+  }
+
+  .counter {
+    width: 50%;
+    height: 100%;
+  }
+
+  .reset-container {
+    width: 10%;
+    height: 100%;
+    flex-shrink: 0;
+  }
+
+  .reset-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0.9375rem;
+    background-color: #ffb74c;
+    color: #fff;
+    margin-top: 0.1em;
+  }
+}
+
+.reset-button:active {
+  transform: scale(0.95);
+  background-color: #ee9d46;
+  box-shadow: inset 0 0 0.625rem rgba(255, 200, 200, 0.5);
+  transition: all 0.1s ease-in-out;
+  animation: flash 0.2s ease-in-out;
+}
+
+@keyframes flash {
+  50% {
+    background-color: #ee9d46;
+  }
+}
