@@ -4,7 +4,7 @@ services:
     env: static
     branch: main
     rootDir: app
-    buildCommand: "./render-build.sh"
+    buildCommand: "pwd"
     startCommand: "bundle exec rails server"
     staticPublishPath: ./build
     envVars:
