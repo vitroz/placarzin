@@ -1,11 +1,12 @@
 services:
   - type: web
     name: placarzin
-    runtime: ruby
-    plan: free
+    env: static
+    branch: main
+    rootDir: app
     buildCommand: "./bin/render-build.sh"
-    # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
     startCommand: "bundle exec rails server"
+    staticPublishPath: ./build
     envVars:
       - key: RAILS_MASTER_KEY
         sync: false
