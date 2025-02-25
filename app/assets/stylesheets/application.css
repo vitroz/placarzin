@@ -12,6 +12,48 @@ body {
   height: 100dvh;
 }
 
+.custom-flex {
+  display: flex;
+}
+
+.custom-mx-auto {
+  margin-inline: auto;
+}
+
+.custom-container {
+  width: 100%;
+}
+
+@media (width >=40rem) {
+  .custom-container {
+    max-width: 40rem;
+  }
+}
+
+@media (width >=48rem) {
+  .custom-container {
+    max-width: 48rem;
+  }
+}
+
+@media (width >=64rem) {
+  .custom-container {
+    max-width: 64rem;
+  }
+}
+
+@media (width >=80rem) {
+  .custom-container {
+    max-width: 80rem;
+  }
+}
+
+@media (width >=96rem) {
+  .custom-container {
+    max-width: 96rem;
+  }
+}
+
 /* Outer Frame */
 .outer-frame {
   width: 95vw;
