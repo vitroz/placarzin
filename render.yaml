@@ -4,9 +4,9 @@ services:
     env: static
     branch: main
     rootDir: app
-    buildCommand: "pwd"
+    buildCommand: "ls"
     startCommand: "bundle exec rails server"
-    staticPublishPath: ./build
+    staticPublishPath: ./app
     envVars:
       - key: RAILS_MASTER_KEY
         sync: false
