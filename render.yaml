@@ -6,7 +6,7 @@ services:
     rootDir: app
     buildCommand: "ls"
     startCommand: "bundle exec rails server"
-    staticPublishPath: ./app
+    staticPublishPath: ./assets
     envVars:
       - key: RAILS_MASTER_KEY
         sync: false
