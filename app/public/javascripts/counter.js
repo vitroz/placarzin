@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateCounter(index, delta) {
     counters[index].value = Math.max(0, counters[index].value + delta);
     counters[index].element.textContent = counters[index].value;
+    console.log(`Counter ${index + 1} updated:`, counters[index].value);
   }
 
   function handleSwipe(index) {
@@ -17,31 +18,39 @@ document.addEventListener("DOMContentLoaded", () => {
     const swipeThreshold = 50; // Minimum swipe distance to trigger action
 
     if (swipeDistance < -swipeThreshold) {
-      // Swipe up → Increment
+      console.log(`Swipe up detected on counter ${index + 1}`);
       updateCounter(index, 1);
     } else if (swipeDistance > swipeThreshold) {
-      // Swipe down → Decrement
+      console.log(`Swipe down detected on counter ${index + 1}`);
       updateCounter(index, -1);
     }
   }
 
-  function setupSwipeListener(counterElement, index) {
-    counterElement.addEventListener("touchstart", (event) => {
+  function setupTouchListener(counterDiv, index) {
+    counterDiv.addEventListener("touchstart", (event) => {
       startY = event.touches[0].clientY;
     });
 
-    counterElement.addEventListener("touchend", (event) => {
+    counterDiv.addEventListener("touchend", (event) => {
       endY = event.changedTouches[0].clientY;
-      handleSwipe(index);
+
+      // Check if it was a tap (i.e., not a swipe)
+      if (Math.abs(endY - startY) < 10) {
+        console.log(`Tap detected on counter ${index + 1}`);
+        updateCounter(index, 1);
+      } else {
+        handleSwipe(index);
+      }
     });
   }
 
-  // Attach listeners to both counters
-  setupSwipeListener(document.getElementById("counter1"), 0);
-  setupSwipeListener(document.getElementById("counter2"), 1);
+  // Attach touch listeners to the entire counter divs
+  setupTouchListener(document.getElementById("counter1"), 0);
+  setupTouchListener(document.getElementById("counter2"), 1);
 
   // Reset button
-  document.querySelector(".reset-button").addEventListener("click", () => {
+  document.querySelector(".reset-button").addEventListener("touchend", () => {
+    console.log("Reset button tapped");
     counters.forEach((counter) => {
       counter.value = 0;
       counter.element.textContent = counter.value;
@@ -53,5 +62,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 500); // Match the animation duration
     });
   });
-
 });
