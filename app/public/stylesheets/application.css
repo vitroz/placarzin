@@ -12,6 +12,58 @@ body {
   height: 100dvh;
 }
 
+/* Floating Clock */
+/* Floating Clock (Smaller) */
+/* Floating Clock (Fixed Size) */
+/* Floating Clock (Completely Fixed Text Size) */
+.clock-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5em;
+  font-family: 'Orbitron', monospace;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.2em 0.8em;
+  border-radius: 0.4em;
+  text-shadow: 0 0 0.4em rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+  z-index: 10;
+  width: 5.2em;
+  /* 👈 Slightly increased width to avoid overflow */
+  height: 2em;
+  /* 👈 Fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Force numbers to always have the same width */
+#clock {
+  display: inline-block;
+  min-width: 7.5ch;
+  /* 👈 Ensures the text stays the same width */
+  font-variant-numeric: tabular-nums;
+  /* 👈 Forces digits to be equal width */
+  letter-spacing: 0.1ch;
+  /* 👈 Keeps even spacing */
+  text-align: center;
+}
+
+
+/* Ensure counters-container is positioned correctly */
+.counters-container {
+  position: relative;
+  /* Needed for absolute positioning of clock */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
 #counter1 {
   background: linear-gradient(135deg, #005bea 0%, #00c6fb 100%);
   color: #fff;
@@ -102,7 +154,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 8em;
+  font-size: 12em;
   /* Bigger Numbers */
   color: #fff;
   box-sizing: border-box;

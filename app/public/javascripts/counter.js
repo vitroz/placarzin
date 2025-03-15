@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
   let startY = 0;
   let endY = 0;
+  let timerInterval = null;
+  let startTime = null;
+
+  const clockElement = document.getElementById("clock");
 
   const counters = [
     { element: document.getElementById("count1"), value: 0 },
@@ -11,17 +15,48 @@ document.addEventListener("DOMContentLoaded", () => {
     counters[index].value = Math.max(0, counters[index].value + delta);
     counters[index].element.textContent = counters[index].value;
     console.log(`Counter ${index + 1} updated:`, counters[index].value);
+
+    checkTimer();
+  }
+
+  function checkTimer() {
+    const anyActive = counters.some(counter => counter.value > 0);
+
+    if (anyActive && !timerInterval) {
+      startTimer();
+    } else if (!anyActive) {
+      stopTimer();
+    }
+  }
+
+  function startTimer() {
+    startTime = Date.now();
+    timerInterval = setInterval(updateTimer, 50); // Update every 10ms
+  }
+
+  function stopTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    clockElement.textContent = "00:00:00"; // Reset clock
+  }
+
+  function updateTimer() {
+    const elapsedTime = Date.now() - startTime;
+
+    const minutes = Math.floor(elapsedTime / 60000);
+    const seconds = Math.floor((elapsedTime % 60000) / 1000);
+    const milliseconds = Math.floor((elapsedTime % 1000) / 10); // Show 2-digit ms
+
+    clockElement.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}:${String(milliseconds).padStart(2, "0")}`;
   }
 
   function handleSwipe(index) {
     const swipeDistance = endY - startY;
-    const swipeThreshold = 50; // Minimum swipe distance to trigger action
+    const swipeThreshold = 50;
 
     if (swipeDistance < -swipeThreshold) {
-      console.log(`Swipe up detected on counter ${index + 1}`);
       updateCounter(index, 1);
     } else if (swipeDistance > swipeThreshold) {
-      console.log(`Swipe down detected on counter ${index + 1}`);
       updateCounter(index, -1);
     }
   }
@@ -34,9 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     counterDiv.addEventListener("touchend", (event) => {
       endY = event.changedTouches[0].clientY;
 
-      // Check if it was a tap (i.e., not a swipe)
       if (Math.abs(endY - startY) < 10) {
-        console.log(`Tap detected on counter ${index + 1}`);
         updateCounter(index, 1);
       } else {
         handleSwipe(index);
@@ -44,22 +77,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Attach touch listeners to the entire counter divs
   setupTouchListener(document.getElementById("counter1"), 0);
   setupTouchListener(document.getElementById("counter2"), 1);
 
-  // Reset button
   document.querySelector(".reset-button").addEventListener("touchend", () => {
-    console.log("Reset button tapped");
     counters.forEach((counter) => {
       counter.value = 0;
       counter.element.textContent = counter.value;
       counter.element.classList.add("shake");
 
-      // Remove the shake class after animation completes
       setTimeout(() => {
         counter.element.classList.remove("shake");
-      }, 500); // Match the animation duration
+      }, 500);
     });
+
+    checkTimer(); // Ensure timer resets when reset button is pressed
   });
 });

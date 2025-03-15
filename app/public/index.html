@@ -5,10 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Counter Scoreboard</title>
-  <link rel="stylesheet" href="/app/public/stylesheets/application.css">
+  <!-- <link rel="stylesheet" href="/app/public/stylesheets/application.css"> -->
+  <link rel="stylesheet" href="/stylesheets/application.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.0/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
@@ -19,9 +21,16 @@
     <div class="outer-frame">
       <!-- Counters Container -->
       <div class="counters-container">
+
         <div id="counter1" class="counter">
           <span id="count1">0</span>
         </div>
+
+        <!-- Floating Clock -->
+        <div class="clock-container">
+          <span id="clock">00:00:00</span>
+        </div>
+
         <div id="counter2" class="counter">
           <span id="count2">0</span>
         </div>
@@ -34,7 +43,8 @@
     </div>
   </main>
 
-  <script src="/app/public/javascripts/counter.js"></script>
+  <!-- <script src="/app/public/javascripts/counter.js"></script> -->
+  <script src="/javascripts/counter.js"></script>
 </body>
 
 </html>
