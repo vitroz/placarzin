@@ -3,7 +3,7 @@
 set -o errexit
 
 bundle install
-bundle exec rails assets:precompile
+RAILS_ENV=production bundle exec rake assets:precompile
 bundle exec rails assets:clean
 bundle exec rails db:migrate
 
