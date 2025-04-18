@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Counter Scoreboard</title>
-  <!-- <link rel="stylesheet" href="/app/public/stylesheets/application.css"> -->
-  <link rel="stylesheet" href="/stylesheets/application.css">
+  <link rel="stylesheet" href="/app/public/stylesheets/application.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.0/dist/tailwind.min.css" rel="stylesheet">
@@ -21,7 +20,6 @@
     <div class="outer-frame">
       <!-- Counters Container -->
       <div class="counters-container">
-
         <div id="counter1" class="counter">
           <span id="count1">0</span>
         </div>
@@ -38,13 +36,26 @@
 
       <!-- Button Container -->
       <div class="button-container">
+        <button class="charbar-button">📊</button>
         <button class="reset-button">Reset</button>
+        <button class="trophy-button">🏆</button>
       </div>
     </div>
   </main>
 
-  <!-- <script src="/app/public/javascripts/counter.js"></script> -->
-  <script src="/javascripts/counter.js"></script>
+  <script src="/app/public/javascripts/counter.js"></script>
+
+  <!-- ✅ Trophy Modal (Fully Hidden at Start) -->
+  <div id="trophy-modal" class="modal">
+    <div class="modal-content">
+      <p>Finalizar partida?</p>
+      <div class="modal-buttons">
+        <button id="modal-yes" class="modal-button yes-button">Sim</button>
+        <button id="modal-no" class="modal-button no-button">Não</button>
+      </div>
+    </div>
+  </div>
+
 </body>
 
 </html>

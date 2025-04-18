@@ -1,4 +1,4 @@
-/* Reset body styles */
+/* ✅ Reset body styles */
 body {
   margin: 0;
   padding: 0;
@@ -12,10 +12,7 @@ body {
   height: 100dvh;
 }
 
-/* Floating Clock */
-/* Floating Clock (Smaller) */
-/* Floating Clock (Fixed Size) */
-/* Floating Clock (Completely Fixed Text Size) */
+/* ✅ Floating Clock */
 .clock-container {
   position: absolute;
   top: 50%;
@@ -31,39 +28,50 @@ body {
   white-space: nowrap;
   z-index: 10;
   width: 5.2em;
-  /* 👈 Slightly increased width to avoid overflow */
   height: 2em;
-  /* 👈 Fixed height */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-/* Force numbers to always have the same width */
-#clock {
-  display: inline-block;
-  min-width: 7.5ch;
-  /* 👈 Ensures the text stays the same width */
-  font-variant-numeric: tabular-nums;
-  /* 👈 Forces digits to be equal width */
-  letter-spacing: 0.1ch;
-  /* 👈 Keeps even spacing */
-  text-align: center;
-}
-
-
-/* Ensure counters-container is positioned correctly */
+/* ✅ Counters */
 .counters-container {
   position: relative;
-  /* Needed for absolute positioning of clock */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-grow: 1;
   z-index: 1;
 }
 
+.counter {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10em;
+  color: #fff;
+  width: 100%;
+  text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease;
+}
+
+.counter:active span {
+  transform: translateY(0.15em);
+  transition: transform 0.1s ease-in-out;
+}
+
+.counter span {
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.counter:active span {
+  transform: translateY(0.1em);
+}
+
+/* ✅ Counter 1 (Blue Gradient) */
 #counter1 {
   background: linear-gradient(135deg, #005bea 0%, #00c6fb 100%);
   color: #fff;
@@ -71,6 +79,7 @@ body {
   box-shadow: inset 0 0 0.5em rgba(0, 0, 0, 0.3);
 }
 
+/* ✅ Counter 2 (Red Gradient) */
 #counter2 {
   background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
   color: #fff;
@@ -78,53 +87,7 @@ body {
   box-shadow: inset 0 0 0.5em rgba(0, 0, 0, 0.3);
 }
 
-.counter:hover {
-  filter: brightness(1.05);
-}
-
-.custom-flex {
-  display: flex;
-}
-
-.custom-mx-auto {
-  margin-inline: auto;
-}
-
-.custom-container {
-  width: 100%;
-}
-
-@media (width >=40rem) {
-  .custom-container {
-    max-width: 40rem;
-  }
-}
-
-@media (width >=48rem) {
-  .custom-container {
-    max-width: 48rem;
-  }
-}
-
-@media (width >=64rem) {
-  .custom-container {
-    max-width: 64rem;
-  }
-}
-
-@media (width >=80rem) {
-  .custom-container {
-    max-width: 80rem;
-  }
-}
-
-@media (width >=96rem) {
-  .custom-container {
-    max-width: 96rem;
-  }
-}
-
-/* Outer Frame */
+/* ✅ Outer Frame */
 .outer-frame {
   width: 95vw;
   height: 95dvh;
@@ -138,71 +101,32 @@ body {
   max-width: 37.5rem;
 }
 
-/* Counters Container */
-.counters-container {
-  flex: 1;
+/* ✅ Button Container */
+.button-container {
   display: flex;
-  flex-direction: column;
   width: 100%;
-  height: 100%;
+  height: 4rem;
   box-sizing: border-box;
-  overflow: hidden;
-}
-
-.counter {
-  flex: 1;
-  display: flex;
-  justify-content: center;
+  gap: 0.3rem;
   align-items: center;
-  font-size: 12em;
-  /* Bigger Numbers */
-  color: #fff;
-  box-sizing: border-box;
-  min-height: 0;
-  width: 100%;
-  text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
-  transition: transform 0.2s ease;
-  margin-right: 0.05em;
-  margin-bottom: 0.05em;
+  justify-content: center;
+  margin-top: 0.5rem;
 }
 
-.counter span {
-  display: inline-block;
-  transform: translateY(0);
-  transition: transform 0.2s ease;
-  font-family: 'Montserrat', Arial, sans-serif;
-}
-
-.counter:active span {
-  transform: translateY(0.1em);
-  /* Slight movement on press */
-}
-
-/* Reset Button Container */
-.reset-container {
-  width: 100%;
-  flex-shrink: 0;
-  box-sizing: border-box;
-}
-
+/* Reset Button */
 .reset-button {
-  width: 100%;
-  padding: 1.25rem;
+  flex: 4;
+  height: 100%;
   background-color: #ffb74c;
   color: #fff;
   border: none;
   cursor: pointer;
   font-size: 1.5em;
-  text-align: center;
-  box-sizing: border-box;
-  transition: background 0.3s;
-  border-top: 0.125rem solid #fff;
-  border-bottom: 0.125rem solid #fff;
   border-radius: 0.5em;
-  margin-top: 0.1em;
-  /* Curved edges */
   font-family: 'Poppins', Arial, sans-serif;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .reset-button:hover {
@@ -211,9 +135,128 @@ body {
 
 .reset-button:active {
   transform: scale(0.95);
-  background-color: #efbd87;
-  box-shadow: inset 0 0 0.625rem rgba(0, 0, 0, 0.3);
-  transition: all 0.1s ease-in-out;
+}
+
+/* Trophy Button */
+.trophy-button {
+  flex: 1;
+  height: 100%;
+  background-color: #ffcc00;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5em;
+  border-radius: 0.5em;
+  font-family: 'Poppins', Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trophy-button:hover {
+  background-color: #ffdb4d;
+}
+
+.trophy-button:active {
+  transform: scale(0.9);
+}
+
+/* Charbar Button with light gray background */
+.charbar-button {
+  flex: 0.8;
+  height: 100%;
+  background-color: #b2b2b2;
+  color: #333;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5em;
+  border-radius: 0.5em;
+  font-family: 'Poppins', Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.charbar-button:hover {
+  background-color: #c0c0c0;
+}
+
+.charbar-button:active {
+  transform: scale(0.9);
+}
+
+/* ✅ Modal Background (Fully Hidden Initially) */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  z-index: 50;
+}
+
+/* ✅ Show Modal */
+.modal.show {
+  display: flex;
+  visibility: visible;
+}
+
+/* ✅ Modal Content */
+.modal-content {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 1.4em;
+  font-family: 'Poppins', sans-serif;
+  width: 90%;
+  max-width: 20rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+}
+
+/* ✅ Modal Buttons */
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+/* Updated Modal Button Styles */
+.modal-button {
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  min-width: 120px;
+}
+
+.yes-button {
+  background: linear-gradient(135deg, #28a745, #218838);
+  color: white;
+  box-shadow: 0 4px 6px rgba(40, 167, 69, 0.4);
+}
+
+.no-button {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  color: white;
+  box-shadow: 0 4px 6px rgba(220, 53, 69, 0.4);
+}
+
+.modal-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-button:active {
+  transform: scale(0.95);
 }
 
 @keyframes shake {
@@ -238,55 +281,73 @@ body {
   animation: shake 0.5s ease;
 }
 
+/* Landscape adjustments */
+@media (orientation: landscape) {
 
-/* Landscape Mode */
-@media screen and (orientation: landscape) {
+  /* Outer frame occupies 94vw (3% margin on each side) and becomes a row layout */
   .outer-frame {
     flex-direction: row;
-    max-width: 62.5rem;
-    width: 98vw;
+    width: 94vw;
+    max-width: 94vw;
   }
 
+  /* Counters container displays counters side by side and fills available height */
   .counters-container {
+    flex: 1;
+    height: 100%;
     flex-direction: row;
-    width: 90%;
-    height: 100%;
+    gap: 0.3rem;
   }
 
+  /* Increase counter font size */
   .counter {
-    width: 50%;
+    font-size: 11em;
     height: 100%;
   }
 
-  .reset-container {
-    width: 10%;
+  /* Button container on the right with a tiny left margin */
+  .button-container {
+    margin-top: 0;
+    width: 8%;
     height: 100%;
-    flex-shrink: 0;
+    margin-left: 0.3rem;
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .reset-button {
+  /* Reset button with a fixed, smaller height and a tiny bottom margin */
+  .button-container .reset-button {
+    height: 2rem;
+    font-size: 1em;
+  }
+
+  /* Reduce clock font size */
+  .clock-container {
+    font-size: 1em;
+    padding: 0.2em 0.4em;
+  }
+
+  /* Trophy Button */
+  .trophy-button {
+    flex: 1.3;
+    font-size: 1.5em;
+    border-radius: 0.5em;
+    font-family: 'Poppins', Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+  }
+
+  /* Charbar Button with light gray background */
+  .charbar-button {
     height: 100%;
-    padding: 0.9375rem;
-    background-color: #ffb74c;
-    color: #fff;
-    margin-top: 0.1em;
+    flex: 0.4;
+    border-radius: 0.2em;
+    font-family: 'Poppins', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-}
 
-.reset-button:active {
-  transform: scale(0.95);
-  background-color: #ee9d46;
-  box-shadow: inset 0 0 0.625rem rgba(255, 200, 200, 0.5);
-  transition: all 0.1s ease-in-out;
-  animation: flash 0.2s ease-in-out;
-}
 
-@keyframes flash {
-  50% {
-    background-color: #ee9d46;
-  }
 }

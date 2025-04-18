@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  match_duration: MyString
+  team_one_score: 1
+  team_two_score: 1
+  winner: MyString
+  loser: MyString
+
+two:
+  match_duration: MyString
+  team_one_score: 1
+  team_two_score: 1
+  winner: MyString
+  loser: MyString
