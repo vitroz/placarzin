@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# Placarzin
+
+Placarzin is a modern Ruby on Rails web application designed to help you track, display, and manage scores for games, matches, or any competitive events. It is built with Rails 8, leverages Hotwire for real-time updates, and uses TailwindCSS for a beautiful, responsive UI.
