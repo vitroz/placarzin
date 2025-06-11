@@ -3,6 +3,8 @@ services:
     name: placarzin
     runtime: ruby
     plan: free
+    rootDir: app
+    staticPublishPath: ./public
     buildCommand: './bin/render-build.sh'
     startCommand: 'bundle exec rails server'
     envVars:
