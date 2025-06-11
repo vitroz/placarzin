@@ -1,8 +1,19 @@
+let startY = 0;
+
 document.addEventListener("DOMContentLoaded", () => {
-  let startY = 0;
   let endY = 0;
   let timerInterval = null;
   let startTime = null;
+
+  document.addEventListener("touchstart", function (e) {
+    startY = e.touches[0].clientY;
+  }, { passive: false });
+
+  document.addEventListener("touchmove", function (e) {
+    if (window.scrollY === 0 && e.touches[0].clientY > startY) {
+      e.preventDefault();
+    }
+  }, { passive: false });
 
   const clockElement = document.getElementById("clock");
 
@@ -66,11 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (event.target.closest(".floating-arrow-btn")) return;
       startY = event.touches[0].clientY;
     });
-  
+
     counterDiv.addEventListener("touchend", (event) => {
       if (event.target.closest(".floating-arrow-btn")) return;
       endY = event.changedTouches[0].clientY;
-  
+
       if (Math.abs(endY - startY) < 10) {
         updateCounter(index, 1);
       } else {
@@ -83,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     e.stopPropagation();
     updateCounter(0, -1);
   });
-  
+
   document.querySelector("#counter2 .floating-arrow-btn").addEventListener("click", (e) => {
     e.stopPropagation();
     updateCounter(1, -1);

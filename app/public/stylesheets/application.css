@@ -66,6 +66,9 @@ body {
 
 .counter span {
   font-family: 'Montserrat', Arial, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .counter:active span {
